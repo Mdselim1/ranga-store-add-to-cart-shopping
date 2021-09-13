@@ -47,7 +47,7 @@ const updatePrice = (id, value) => {
   const convertedOldPrice = getInputValue(id);
   const convertPrice = parseFloat(value);
   const total = convertedOldPrice + convertPrice;
-  document.getElementById(id).innerText = total;//toFixed
+  document.getElementById(id).innerText = total.toFixed(2);
 };
 
 // set innerText function
@@ -79,6 +79,6 @@ const updateTotal = () => {
   const totalTax = getInputValue("total-tax");
   // console.log(productPrice , deliveryCharge , totalTax)
   const grandTotal = productPrice + deliveryCharge + totalTax; 
-  document.getElementById("total").innerText = grandTotal;
+  document.getElementById("total").innerText = grandTotal.toFixed(2);
 };
 loadProducts();
