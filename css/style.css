@@ -5,6 +5,12 @@ body {
 
 /* search field css starts here  */
 
+#serach-bar{
+  background: greenyellow;
+  padding: 60px 0;
+  margin-bottom: 30px;
+}
+
 .search-field {
   border: none;
   border-radius: 50px;
@@ -30,7 +36,7 @@ body {
 }
 
 .style-button{
-  background: #ff7200;
+  background: lightseagreen;
   border-width: 2px;
   color: white;
   font-weight: bold;
@@ -44,6 +50,10 @@ body {
 /* search field css ends here  */
 
 /* button cart details css starts here  */
+
+.card-main:hover{
+  background: #ddd;
+}
 
 #addToCart-btn{
   background: #ff7200;
@@ -75,5 +85,44 @@ body {
   height: 350px;
 }
 
+#buy-now-btn{
+  background: crimson;
+  margin: 20px 0;
+}
+
 /* Products Section Css End Here  */
 
+
+/********************* Buy Html Page Css Code Start Here ******************  */
+
+.box-container{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  text-align: center;
+}
+
+.box-container a {
+  text-decoration: none;
+  font-size: 25px;
+  font-weight: 500;
+  color: #ff7200;
+}
+
+.box-container h3 {
+  font-size: 20px;
+  color: olivedrab;
+  font-weight: 500;
+}
+
+.box-container a {
+  color:#fff;
+  background: #dc143c;
+  padding: 10px 30px;
+  border-radius: 5px;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+/********************* Buy Html Page Css Code Ends Here ******************  */

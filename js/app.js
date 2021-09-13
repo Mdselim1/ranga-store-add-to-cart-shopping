@@ -6,13 +6,12 @@ const loadProducts = () => {
 // show all product in UI 
 const showProducts = (products) => {
   const allProducts = products.map(pd => pd);
-  console.log(allProducts);
   for (const product of allProducts) {
     const image = product.image;
     const div = document.createElement("div");
     div.classList.add("col");
     div.innerHTML = `
-    <div class="card h-100 p-4 text-center">
+    <div class="card h-100 p-4 text-center card-main">
       <img src="${image}" class="card-img-top height-set" alt="can't find image">
       <div class="card-body mt-3">
         <h5 class="card-title">${product.title}</h5>
@@ -21,7 +20,6 @@ const showProducts = (products) => {
       <h5 class="text-danger">Average rating : ${product.rating.rate} </h5>
       <p class="text-success fw-bold">Total Review : ${product.rating.count} </p>
       </div>
-      
       <div>
       <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success text-capitalize">add to cart</button>
       <button id="details-btn" class="btn btn-danger">Details</button>
@@ -29,13 +27,13 @@ const showProducts = (products) => {
     </div>
       `;
     document.getElementById("all-products").appendChild(div);
-  }
+  };
 };
 
 //Total Product Count Number
 
 let count = 0;
-const addToCart = (id, price) => {
+const addToCart = (id , price) => {
   count = count + 1;
   updatePrice("price", price);
   updateTaxAndCharge();
@@ -95,3 +93,12 @@ const updateTotal = () => {
   document.getElementById("total").innerText = grandTotal.toFixed(2);
 };
 loadProducts();
+
+// Buy Now Js Write 
+
+const buyNowBtn = () => {
+  window.location.href = 'buy.html';
+};
+
+
+  
