@@ -10,23 +10,30 @@ const showProducts = (products) => {
   for (const product of allProducts) {
     const image = product.image;
     const div = document.createElement("div");
-    div.classList.add("product");
-    div.innerHTML = `<div class="single-product my-5">
-      <div>
-    <img class="product-image" src=${image}></img>
+    div.classList.add("col");
+    div.innerHTML = `
+    <div class="card h-100 p-4 text-center">
+      <img src="${image}" class="card-img-top height-set" alt="can't find image">
+      <div class="card-body mt-3">
+        <h5 class="card-title">${product.title}</h5>
+        <p class="card-text">Category: ${product.category}</p>
+        <h2>Price: $ ${product.price}</h2>
+      <h5 class="text-danger">Average rating : ${product.rating.rate} </h5>
+      <p class="text-success fw-bold">Total Review : ${product.rating.count} </p>
       </div>
-      <h3>${product.title}</h3>
-      <p>Category: ${product.category}</p>
-      <h2>Price: $ ${product.price}</h2>
-      <div class="my-3">
-      <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
+      
+      <div>
+      <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success text-capitalize">add to cart</button>
       <button id="details-btn" class="btn btn-danger">Details</button>
       </div>
-      </div>
+    </div>
       `;
     document.getElementById("all-products").appendChild(div);
   }
 };
+
+//Total Product Count Number
+
 let count = 0;
 const addToCart = (id, price) => {
   count = count + 1;
@@ -36,11 +43,15 @@ const addToCart = (id, price) => {
   updateTotal();
 };
 
+
+//Find Input Value for price , deliverycharge and total Price function
+
 const getInputValue = (id) => {
   const element = document.getElementById(id).innerText;
   const converted = parseFloat(element);
   return converted;
 };
+
 
 // main price update function
 const updatePrice = (id, value) => {
@@ -50,10 +61,12 @@ const updatePrice = (id, value) => {
   document.getElementById(id).innerText = total.toFixed(2);
 };
 
+
 // set innerText function
 const setInnerText = (id, value) => {
   document.getElementById(id).innerText = value;
 };
+
 
 // update delivery charge and total Tax
 const updateTaxAndCharge = () => {
